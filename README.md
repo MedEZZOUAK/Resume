@@ -73,6 +73,14 @@ You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/e
 
 **_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
 
+## CV Auto-Publish (GitHub Actions)
+
+This repo includes a workflow that builds `cv_frensh.pdf` and `resume.pdf` and pushes them to your portfolio repo on each change.
+
+Required secret in this repo:
+
+- `PORTFOLIO_REPO_TOKEN`: a GitHub token with `contents: write` access to `MedEZZOUAK/me`
+
 
 ## How to Use
 
