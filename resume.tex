@@ -21,7 +21,6 @@
 \definecolor{graytext}{HTML}{555555}
 \definecolor{lighttext}{HTML}{999999}
 \definecolor{sectiondivider}{HTML}{B0B0B0}
-\definecolor{darkgray}{HTML}{B0B0B0}
 
 \setbool{acvSectionColorHighlight}{true}
 \renewcommand{\acvHeaderSocialSep}{\quad\textbullet\quad}
@@ -30,7 +29,7 @@
 \renewcommand{\acvSectionContentTopSkip}{2mm}
 
 %-------------------------------------------------------------------------------
-% FONT SIZING (READABILITY)
+% FONT SIZING
 %-------------------------------------------------------------------------------
 \makeatletter
 \renewcommand*{\headerpositionstyle}[1]{{\fontsize{8.2pt}{1em}\bodyfont\scshape\color{awesome} #1}}
@@ -48,19 +47,11 @@
 \makeatother
 
 %-------------------------------------------------------------------------------
-% SPACING CONTROL (THE IMPORTANT PART)
+% SPACING
 %-------------------------------------------------------------------------------
 \usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.6em, itemsep=0pt, topsep=2pt}
 
-% Bullet list spacing (simple/compact)
-\setlist[itemize]{
-  leftmargin=1.6em,
-  itemsep=0pt,
-  topsep=2pt,
-  parsep=0pt
-}
-
-% Paragraph spacing
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
 
@@ -87,7 +78,7 @@
 \cvsection{Summary}
 
 \begin{cvparagraph}
-Junior Software Engineer with experience in enterprise and industrial environments, working on backend-heavy web systems and internal platforms. Strong foundation in Python/Django, relational databases, and system evolution under real production constraints. Comfortable in multi-client ESN contexts, legacy system~modernization, and direct client interaction.
+Software Engineer working on backend production systems with experience in ESN (consulting) and industrial environments. Responsible for feature development, application maintenance (TMA), effort estimation, and functional validation in multi-client and large-account contexts. Comfortable working on existing systems under performance, reliability, and operational constraints.
 \end{cvparagraph}
 
 %-------------------------------------------------------------------------------
@@ -98,36 +89,37 @@ Junior Software Engineer with experience in enterprise and industrial environmen
 \begin{cventries}
 
 \cventry
-  {Junior Software Engineer}
+  {Software Engineer}
   {\textcolor{awesome}{ITSS Paris}}
   {Casablanca, Morocco}
-  {Aug. 2025 -- Present (CDI)}
+  {Aug. 2025 -- Present (Permanent)}
   {
     \begin{cvitems}
-      \item {Contributed to the development of \textbf{IJConnect}, successor of the legacy \textbf{IJStats}~platform, ensuring functional and data synchronization during the transition period.}
-      \item {Handled backend responsibilities including \textbf{business logic implementation, socket-based features, and database migrations} within a Django-based system.}
-      \item {Resolved backend performance and stability issues (slow SQL queries, connection timeouts, saturated connection pools) by analyzing production workloads and applying indexing and query optimization strategies.}
-      \item {Worked in a~\textbf{multi-client ESN environment}, delivering features for organizations such as IJ France, SIMV, CIDJ, PSE, Mairie de Champigny, and IJBOX.}
-      \item {Participated in regular \textbf{client-facing meetings} to clarify functional requirements and translate operational needs into technical solutions.}
+      \item {Development and maintenance of the \textbf{IJConnect} platform (successor to \textbf{IJStats}) in production, ensuring functional and data continuity during the migration phase.}
+      \item {Backend ownership on a \textbf{Django}-based system: business logic implementation, WebSocket features, schema migrations, and functional evolutions.}
+      \item {Application maintenance and \textbf{TMA}: incident resolution, corrective fixes, and minor enhancements on existing production systems.}
+      \item {Analysis and resolution of performance and stability issues (slow SQL queries, timeouts, connection pool saturation) through query optimization and indexing.}
+      \item {Preparation of \textbf{effort estimates} for feature requests and participation in delivery planning.}
+      \item {Execution of \textbf{functional testing}, validation with business stakeholders, and production deployment of fixes.}
+      \item {Interventions for \textbf{large enterprise clients} in a multi-client ESN context, including IJ France, SIMV, CIDJ, PSE, Mairie de Champigny, and IJBOX.}
     \end{cvitems}
   }
 
 \vspace{12pt}
 
 \cventry
-  {Software Engineer Intern}
+  {Software Engineer}
   {\textcolor{awesome}{Lear Corporation}}
   {Kénitra, Morocco}
   {Feb. 2025 -- Jul. 2025}
   {
     \begin{cvitems}
-      \item {Designed and developed an \textbf{internal web platform} to digitize recruitment, training, and certification workflows, replacing Excel-based and paper processes.}
+      \item {Designed and developed an internal web platform end-to-end to digitize recruitment, training, and certification processes, replacing Excel-based and paper workflows.}
       \item {Implemented automated evaluation modules and notification mechanisms to track trainee progress and certification validity.}
-      \item {Processed and transformed \textbf{production logs into operational dashboards} used by factory staff for real-time monitoring.}
+      \item {Processed and transformed production logs into operational dashboards used by shop-floor teams.}
       \item {Developed a computer-vision-based defect detection prototype to support quality control in a \textbf{Just-In-Time} manufacturing environment.}
     \end{cvitems}
   }
-
 
 \vspace{12pt}
 
@@ -139,13 +131,11 @@ Junior Software Engineer with experience in enterprise and industrial environmen
   {
     \begin{cvitems}
       \item {Developed backend features and frontend templates using \textbf{PHP/Symfony} for institutional and public-sector web platforms.}
-      \item {Delivered a production-ready solution aligned with client functional and structural requirements.}
+      \item {Delivered a production-ready solution aligned with functional and technical client requirements.}
     \end{cvitems}
   }
 
-
 \end{cventries}
-\vspace{4pt}
 
 %-------------------------------------------------------------------------------
 % EDUCATION
@@ -154,17 +144,16 @@ Junior Software Engineer with experience in enterprise and industrial environmen
 
 \begin{cventries}
   \cventry
-    {State Engineering Degree (Ingénieur d'État), Computer Science}
+    {State Engineering Degree in Computer Science — Information Systems \& Decision Support}
     {ENSA Tétouan}
     {Tétouan, Morocco}
     {2020 -- 2025}
     {
       \begin{cvitems}
-        \item {\textbf{Final Year Project:} Computer vision defect detection for manufacturing quality control.}
+        \item {\textbf{Final Year Project:} Computer vision-based defect detection for industrial quality control in a \textbf{Just-In-Time} (JIT) context.}
       \end{cvitems}
     }
 \end{cventries}
-\vspace{4pt}
 
 %-------------------------------------------------------------------------------
 % SKILLS
@@ -178,23 +167,19 @@ Junior Software Engineer with experience in enterprise and industrial environmen
 
   \cvskill
     {Databases}
-    {PostgreSQL, MySQL, SQL optimization, indexing, database migrations, query performance tuning}
+    {PostgreSQL, MySQL, SQL optimization, indexing, schema migrations, query performance tuning}
 
   \cvskill
     {Web}
-    {React, JavaScript, HTML, CSS, responsive design}
+    {React, JavaScript, HTML, CSS}
 
   \cvskill
     {Data \& AI}
-    {ETL concepts, BigQuery, operational data processing, computer vision, YOLO, OpenCV}
+    {ETL/ELT concepts, BigQuery, operational data processing, computer vision, YOLO, OpenCV}
 
   \cvskill
     {DevOps \& Tools}
-    {Git, Docker, Linux, CI/CD, Redis, Nginx, debugging \& profiling}
-
-  \cvskill
-    {Methodologies}
-    {Agile development, client requirements analysis, legacy system modernization}
+    {Git, Docker, Linux, CI/CD, Redis, Nginx}
 \end{cvskills}
 
 %-------------------------------------------------------------------------------
@@ -204,8 +189,8 @@ Junior Software Engineer with experience in enterprise and industrial environmen
 
 \begin{cvparagraph}
 \textbf{Arabic} — Native \quad\textbar\quad
-\textbf{English} — Fluent (C1) \quad\textbar\quad
-\textbf{French} — Fluent (C1)
+\textbf{French} — Fluent (C1) \quad\textbar\quad
+\textbf{English} — Fluent (C1)
 \end{cvparagraph}
 
 \end{document}
