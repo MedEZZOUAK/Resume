@@ -15,12 +15,28 @@ on:
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
 
     steps:
+      - name: Start job
+        run: |
+          echo "::group::🚀 Job started"
+          echo "Runner: $RUNNER_OS ($RUNNER_ARCH)"
+          echo "Event: ${{ github.event_name }} | Ref: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Time: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "::endgroup::"
       - name: Checkout resume repo
         uses: actions/checkout@v4
+      - name: Log checkout
+        run: |
+          echo "::group::📂 Resume repo checkout"
+          echo "Branch: $(git branch --show-current)"
+          echo "Files: $(git ls-files | wc -l) tracked"
+          ls -la *.tex 2>/dev/null || true
+          echo "::endgroup::"
 
       - name: Build PDFs with LaTeX
         uses: xu-cheng/latex-action@v3
@@ -31,6 +47,12 @@ jobs:
             cv_frensh.tex
             resume.tex
 
+      - name: Log LaTeX build output
+        run: |
+          echo "::group::📄 Built PDFs"
+          ls -la build/*.pdf 2>/dev/null || (echo "No PDFs in build/"; exit 1)
+          echo "::endgroup::"
+
       - name: Checkout portfolio repo
         uses: actions/checkout@v4
         with:
@@ -38,22 +60,37 @@ jobs:
           token: ${{ secrets.PORTFOLIO_REPO_TOKEN }}
           path: portfolio
 
+      - name: Log portfolio checkout
+        run: |
+          echo "::group::📂 Portfolio repo"
+          (cd portfolio && git branch --show-current && git log -1 --oneline)
+          echo "::endgroup::"
+
       - name: Copy PDFs into portfolio public/
         run: |
+          echo "::group::📋 Copy PDFs"
           mkdir -p portfolio/public
-          cp build/cv_frensh.pdf portfolio/public/cv_frensh.pdf
-          cp build/resume.pdf portfolio/public/resume.pdf
+          cp -v build/cv_frensh.pdf portfolio/public/cv_frensh.pdf
+          cp -v build/resume.pdf portfolio/public/resume.pdf
+          echo "Copied:"
+          ls -la portfolio/public/*.pdf
+          echo "::endgroup::"
 
       - name: Commit and push if changed
         working-directory: portfolio
         run: |
+          echo "::group::📤 Commit and push"
           git status --porcelain
           if git diff --quiet; then
-            echo "No changes to commit."
+            echo "No changes to commit — portfolio already up to date."
+            echo "::endgroup::"
             exit 0
           fi
+          echo "Changes detected — committing and pushing."
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/cv_frensh.pdf public/resume.pdf
           git commit -m "Update CV PDFs"
           git push
+          echo "Pushed successfully."
+          echo "::endgroup::"
