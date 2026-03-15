@@ -82,8 +82,9 @@ jobs:
         working-directory: portfolio
         run: |
           echo "::group::📤 Commit and push"
-          git status --porcelain
-          if git diff --quiet; then
+          CHANGES="$(git status --porcelain)"
+          echo "$CHANGES"
+          if [ -z "$CHANGES" ]; then
             echo "No changes to commit — portfolio already up to date."
             echo "::endgroup::"
             exit 0
