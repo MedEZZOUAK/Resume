@@ -16,6 +16,8 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
       contents: read
 
@@ -70,8 +72,8 @@ jobs:
         run: |
           echo "::group::📋 Copy PDFs"
           mkdir -p portfolio/public
-          cp -v build/cv_frensh.pdf portfolio/public/cv_frensh.pdf
-          cp -v build/resume.pdf portfolio/public/resume.pdf
+          cp -v build/cv_frensh.pdf portfolio/public/Mohammed_Ez-Zouak_CV.pdf
+          cp -v build/resume.pdf portfolio/public/Mohammed_Ez-Zouak_CV_EN.pdf
           echo "Copied:"
           ls -la portfolio/public/*.pdf
           echo "::endgroup::"
@@ -89,7 +91,7 @@ jobs:
           echo "Changes detected — committing and pushing."
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/cv_frensh.pdf public/resume.pdf
+          git add public/Mohammed_Ez-Zouak_CV.pdf public/Mohammed_Ez-Zouak_CV_EN.pdf
           git commit -m "Update CV PDFs"
           git push
           echo "Pushed successfully."
