@@ -55,6 +55,14 @@ jobs:
           ls -la build/*.pdf 2>/dev/null || (echo "No PDFs in build/"; exit 1)
           echo "::endgroup::"
 
+      - name: Rename built PDFs
+        run: |
+          echo "::group::✏️ Rename PDFs"
+          mv -v build/cv_frensh.pdf build/Mohammed_Ez-Zouak_CV.pdf
+          mv -v build/resume.pdf build/Mohammed_Ez-Zouak_CV_EN.pdf
+          ls -la build/*.pdf
+          echo "::endgroup::"
+
       - name: Checkout portfolio repo
         uses: actions/checkout@v4
         with:
@@ -72,8 +80,8 @@ jobs:
         run: |
           echo "::group::📋 Copy PDFs"
           mkdir -p portfolio/public
-          cp -v build/cv_frensh.pdf portfolio/public/Mohammed_Ez-Zouak_CV.pdf
-          cp -v build/resume.pdf portfolio/public/Mohammed_Ez-Zouak_CV_EN.pdf
+          cp -v build/Mohammed_Ez-Zouak_CV.pdf portfolio/public/Mohammed_Ez-Zouak_CV.pdf
+          cp -v build/Mohammed_Ez-Zouak_CV_EN.pdf portfolio/public/Mohammed_Ez-Zouak_CV_EN.pdf
           echo "Copied:"
           ls -la portfolio/public/*.pdf
           echo "::endgroup::"
