@@ -1,195 +1,121 @@
-%!TEX TS-program = xelatex
+%!TEX TS-program = pdflatex
 %!TEX encoding = UTF-8 Unicode
+\documentclass[11pt,a4paper]{article}
 
-\documentclass[11pt, a4paper]{awesome-cv}
-
-%-------------------------------------------------------------------------------
-% PAGE & FONT
-%-------------------------------------------------------------------------------
-\geometry{left=1.35cm, top=1.0cm, right=1.35cm, bottom=0.7cm, footskip=0.4cm}
-\fontdir[fonts/]
-
-%-------------------------------------------------------------------------------
-% COLORS
-%-------------------------------------------------------------------------------
-\definecolor{awesome-gray}{HTML}{333333}
-\definecolor{awesome-teal}{HTML}{1F7A8C}
-\colorlet{awesome}{awesome-teal}
-
-\definecolor{darktext}{HTML}{333333}
-\definecolor{text}{HTML}{333333}
-\definecolor{graytext}{HTML}{555555}
-\definecolor{lighttext}{HTML}{999999}
-\definecolor{sectiondivider}{HTML}{B0B0B0}
-
-\setbool{acvSectionColorHighlight}{true}
-\renewcommand{\acvHeaderSocialSep}{\quad\textbullet\quad}
-\renewcommand{\acvHeaderAfterSocialSkip}{4mm}
-\renewcommand{\acvSectionTopSkip}{2mm}
-\renewcommand{\acvSectionContentTopSkip}{2mm}
-
-%-------------------------------------------------------------------------------
-% FONT SIZING
-%-------------------------------------------------------------------------------
-\makeatletter
-\renewcommand*{\headerpositionstyle}[1]{{\fontsize{8.2pt}{1em}\bodyfont\scshape\color{awesome} #1}}
-\renewcommand*{\headeraddressstyle}[1]{{\fontsize{8.5pt}{1em}\headerfont\itshape\color{lighttext} #1}}
-\renewcommand*{\headersocialstyle}[1]{{\fontsize{7.2pt}{1em}\headerfont\color{text} #1}}
-\renewcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-\renewcommand*{\paragraphstyle}{\fontsize{9.2pt}{1.12em}\bodyfontlight\upshape\color{text}}
-\renewcommand*{\entrytitlestyle}[1]{{\fontsize{10.3pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\renewcommand*{\entrypositionstyle}[1]{{\fontsize{8.2pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\renewcommand*{\entrydatestyle}[1]{{\fontsize{8.2pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\renewcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
-\renewcommand*{\descriptionstyle}[1]{{\fontsize{9.2pt}{1.12em}\bodyfontlight\upshape\color{text} #1}}
-\renewcommand*{\skilltypestyle}[1]{{\fontsize{9.8pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\renewcommand*{\skillsetstyle}[1]{{\fontsize{8.8pt}{1em}\bodyfontlight\color{text} #1}}
-\makeatother
-
-%-------------------------------------------------------------------------------
-% SPACING
-%-------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.15cm]{geometry}
 \usepackage{enumitem}
-\setlist[itemize]{leftmargin=1.6em, itemsep=0pt, topsep=2pt}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tabularx}
 
-\setlength{\parskip}{3pt}
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{2.5pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=1pt, parsep=0pt}
 
-%-------------------------------------------------------------------------------
-% PERSONAL INFO
-%-------------------------------------------------------------------------------
-\photo[circle,edge,left]{profile_pic.jpg}
+\pagenumbering{gobble}
 
-\name{Mohammed}{EZ-ZOUAK}
-\position{Software Engineer}
-\address{Casablanca, Morocco}
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0pt}
+  {}
+  [\vspace{2pt}\color{black!40}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
 
-\mobile{(+212) 06-0203-7451}
-\email{m.ezzouak@outlook.com}
-\linkedin{mohammed-ez-zouak}
-\homepage{mezzouak.tech}
+\newcommand{\resumeEntry}[4]{
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{#1} & #2 \\
+\textit{#3} & \textit{#4} \\
+\end{tabularx}
+\vspace{-3pt}
+}
 
 \begin{document}
-\makecvheader[C]
 
-%-------------------------------------------------------------------------------
-% SUMMARY
-%-------------------------------------------------------------------------------
-\cvsection{Summary}
+% ===== HEADER =====
+\begin{minipage}[c]{0.80\textwidth}
+{\LARGE \textbf{Mohammed EZ-ZOUAK}}\\
+\textbf{Junior Full-Stack Developer}\\[3pt]
+Casablanca, Morocco \textbar\ (+212) 06-0203-7451 \textbar\ \href{mailto:m.ezzouak@outlook.com}{m.ezzouak@outlook.com}\\
+\href{https://linkedin.com/in/mohammed-ez-zouak}{linkedin.com/in/mohammed-ez-zouak} \textbar\ \href{https://github.com/mezzouak}{github.com/mezzouak} \textbar\ \href{https://mezzouak.tech}{mezzouak.tech}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.17\textwidth}
+\raggedleft
+\includegraphics[width=0.9\linewidth]{profile_pic.jpg}
+\end{minipage}
 
-\begin{cvparagraph}
-Backend Software Engineer focused on Python systems, automation, and data processing. Experience building production backend services with Django and designing industrial automation tools, including computer-vision-based defect detection and operational dashboards for manufacturing environments. Comfortable working end-to-end across data pipelines, APIs, and deployment for real-world industrial use cases.
-\end{cvparagraph}
+\vspace{2pt}
 
-%-------------------------------------------------------------------------------
-% EXPERIENCE
-%-------------------------------------------------------------------------------
-\cvsection{Experience}
+% ===== SUMMARY =====
+\section*{Summary}
+Junior Full-Stack Developer with hands-on experience building and deploying web applications using Python (Django). Contributed to production systems serving thousands of daily users, with a focus on backend development, database performance, and real-time features.
 
-\begin{cventries}
+% ===== EXPERIENCE =====
+\section*{Experience}
 
-\cventry
-  {Software Engineer}
-  {\textcolor{awesome}{ITSS Paris}}
-  {Casablanca, Morocco}
-  {Aug. 2025 -- Present (Permanent)}
-  {
-    \begin{cvitems}
-      \item {Backend ownership on a \textbf{Django}-based system: business logic implementation, WebSocket features, schema migrations, and functional evolutions for production services.}
-      \item {Improved system performance and reliability by profiling slow SQL queries and optimizing database access patterns in PostgreSQL/MySQL.}
-      \item {Implemented real-time features (notifications and live data updates) using WebSockets and asynchronous workers to enhance user experience.}
-      \item {Integrated external services and APIs (authentication, payments, internal tools) with robust error handling and logging.}
-      \item {Application maintenance and \textbf{TMA}: incident resolution, corrective fixes, and minor enhancements on existing production systems.}
-      \item {Preparation of \textbf{effort estimates} for feature requests and participation in delivery planning.}
-      \item {Execution of \textbf{functional testing}, validation with business stakeholders, and production deployment of fixes.}
-      \item {Interventions for \textbf{large enterprise clients} in a multi-client ESN context, including IJ France, SIMV, CIDJ, PSE, Mairie de Champigny, and IJBOX.}
-    \end{cvitems}
-  }
+\resumeEntry
+{Software Engineer (Junior)}
+{2025-08 -- Present}
+{ITSS Paris}
+{Casablanca, Morocco}
 
-\vspace{12pt}
+\begin{itemize}
+  \item Contributed to backend development of Django-based platforms, including IJConnect (\textasciitilde5K daily users).
+  \item Improved performance of database-heavy pages by identifying bottlenecks (AWS RDS insights) and applying indexing and query optimizations, reducing load times from several minutes to \textasciitilde30 seconds.
+  \item Implemented real-time notifications using WebSockets and integrated chat via a Matrix server.
+  \item Participated in client communication, requirement estimation (chiffrage), development, and deployment.
+  \item Worked across multiple client projects in a multi-tenant environment.
+\end{itemize}
 
-\cventry
-  {Software Engineer (Intern)}
-  {\textcolor{awesome}{Lear Corporation}}
-  {Kénitra, Morocco}
-  {Feb. 2025 -- Jul. 2025}
-  {
-    \begin{cvitems}
-      \item {Designed a computer-vision defect detection prototype using YOLO and OpenCV to identify manufacturing defects in a \textbf{Just-In-Time} production environment.}
-      \item {Built data pipelines to collect, clean, and process shop-floor logs, enabling automated analysis of production quality and cycle times.}
-      \item {Developed operational dashboards for production teams, exposing real-time and historical KPIs (defect rate, throughput, downtime) to support decision-making.}
-      \item {Evaluated model performance using precision/recall metrics and confusion matrices, iterating on dataset quality and annotation to improve detection accuracy.}
-      \item {Collaborated with industrial engineers and plant teams to integrate the prototype into existing workflows and constraints on the production line.}
-      \item {Designed and developed an internal web platform end-to-end to digitize recruitment, training, and certification processes, replacing Excel-based and paper workflows.}
-    \end{cvitems}
-  }
+\resumeEntry
+{Software Engineer Intern}
+{2025-02 -- 2025-07}
+{Lear Corporation}
+{Kenitra, Morocco}
 
-\vspace{12pt}
+\begin{itemize}
+  \item Developed a proof-of-concept defect detection system using YOLO and OpenCV (\textasciitilde77\% precision / 75\% recall).
+  \item Built dashboards to visualize production KPIs (defect rate, throughput, downtime).
+  \item Contributed to MVP tools supporting digitalization of internal workflows.
+\end{itemize}
 
-\cventry
-  {Freelance Software Developer}
-  {\textcolor{awesome}{Twins Groupe}}
-  {Fès, Morocco}
-  {Jan. 2025 -- Feb. 2025}
-  {
-    \begin{cvitems}
-      \item {Developed backend features and frontend templates using \textbf{PHP/Symfony} for institutional and public-sector web platforms.}
-      \item {Delivered a production-ready solution aligned with functional and technical client requirements.}
-    \end{cvitems}
-  }
+\resumeEntry
+{Freelance / Contract Developer}
+{2025-01 -- 2025-02}
+{Twins Groupe}
+{Fes, Morocco}
 
-\end{cventries}
+\begin{itemize}
+  \item Implemented a search feature using Apache Solr in a Drupal-based platform.
+  \item Supported backend development and templating tasks during a short-term engagement.
+\end{itemize}
 
-%-------------------------------------------------------------------------------
-% EDUCATION
-%-------------------------------------------------------------------------------
-\cvsection{Education}
+% ===== EDUCATION =====
+\section*{Education}
 
-\begin{cventries}
-  \cventry
-    {State Engineering Degree in Computer Science — Information Systems \& Decision Support}
-    {ENSA Tétouan}
-    {Tétouan, Morocco}
-    {2020 -- 2025}
-    {}
-\end{cventries}
+\resumeEntry
+{State Engineering Degree in Computer Science -- Specialization: Information Systems and Decision Support}
+{2020 -- 2025}
+{ENSA Tetouan}
+{Tetouan, Morocco}
 
-%-------------------------------------------------------------------------------
-% SKILLS
-%-------------------------------------------------------------------------------
-\cvsection{Technical Skills}
+% ===== SKILLS =====
+\section*{Technical Skills}
 
-\begin{cvskills}
-  \cvskill
-    {Backend \& APIs}
-    {Python (Django), Java (Spring Boot), PHP (Symfony), REST APIs, WebSockets}
+\textbf{Backend \& APIs:} Python (Django), REST APIs, WebSockets \\
+\textbf{Databases:} PostgreSQL, MySQL, query optimization, indexing \\
+\textbf{Data Engineering \& AI:} Airflow, dbt, GCP, YOLO, OpenCV \\
+\textbf{Web:} JavaScript, React (basic), HTML, CSS \\
+\textbf{Cloud \& Tools:} Google Cloud Platform, Docker, Git
 
-  \cvskill
-    {Databases}
-    {PostgreSQL, MySQL, SQL optimization, indexing, schema migrations, query performance tuning}
+% ===== LANGUAGES =====
+\section*{Languages}
 
-  \cvskill
-    {Web}
-    {React, JavaScript, HTML, CSS}
-
-  \cvskill
-    {Data \& AI}
-    {Python data processing, ETL/ELT pipelines, computer vision (YOLO, OpenCV), operational analytics and dashboards for industrial environments}
-
-  \cvskill
-    {DevOps \& Tools}
-    {Git, Docker, Linux, CI/CD, Redis, Nginx}
-\end{cvskills}
-
-%-------------------------------------------------------------------------------
-% LANGUAGES
-%-------------------------------------------------------------------------------
-\cvsection{Languages}
-
-\begin{cvparagraph}
-\textbf{Arabic} — Native \quad\textbar\quad
-\textbf{French} — Fluent (C1) \quad\textbar\quad
-\textbf{English} — Fluent (C1)
-\end{cvparagraph}
+Arabic (Native) \quad French (C1) \quad English (C1)
 
 \end{document}
